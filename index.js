@@ -28,9 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+   Counter1 updates the parent variable count using a closure statement. Counter2 updates the global variable count.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *   Counter1 uses a closure because the return statement returns a function which accesses a variable made in the parent function.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * I would prefer to use counter1 when keeping track of several sets of data. This counter can be used multiple times to keep track of count. 
+ * 
+ * Counter2 can be useful in simple code that does not require multiple threads of information
  *
 */
 
@@ -40,6 +48,7 @@ function counterMaker() {
   return function counter() {
    return count++;
   }
+  
 }
 
 const counter1 = counterMaker();
